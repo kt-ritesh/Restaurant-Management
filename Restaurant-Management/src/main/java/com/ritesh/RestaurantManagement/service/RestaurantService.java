@@ -23,19 +23,13 @@ public class RestaurantService {
         return "Restaurant added Successfully!!";
     }
 
-    public String updateRestaurant(Integer rId, Restaurant restaurant) {
+    public String updateRestaurant(Integer rId, String Specialty) {
         List<Restaurant> list = AllRestaurant();
         for(Restaurant rest : list){
             if(rest.getRestaurantId().equals(rId)){
-                rest.setRestaurantId(restaurant.getRestaurantId());
-                rest.setRestaurantName(restaurant.getRestaurantName());
-                rest.setRestaurantManagerName(restaurant.getRestaurantManagerName());
-                rest.setRestaurantType(restaurant.getRestaurantType());
-                rest.setFoodType(restaurant.getFoodType());
-                rest.setRestaurantAddress(restaurant.getRestaurantAddress());
-                rest.setRestaurantContact(restaurant.getRestaurantContact());
-                rest.setRestaurantNoOfStaff(restaurant.getRestaurantNoOfStaff());
-                return "Restaurant details update successfully!";
+                rest.setRestaurantSpecialty(Specialty);
+
+                return "Restaurant Specialty update successfully!";
             }
         }
         return "Restaurant ID Not fonded!";
@@ -61,5 +55,29 @@ public class RestaurantService {
             }
         }
         return "Id not found!";
+    }
+
+    public String addRestaurantStaff(Integer rId, Integer staff) {
+        List<Restaurant> list = AllRestaurant();
+        for(Restaurant rest : list){
+            if(rest.getRestaurantId().equals(rId)){
+                rest.setRestaurantNoOfStaff(rest.getRestaurantNoOfStaff()+staff);
+
+                return "Staff added successfully!!";
+            }
+        }
+        return "Restaurant Id not found!";
+    }
+
+    public String removeRestaurantStaff(Integer rId, Integer staff) {
+        List<Restaurant> list = AllRestaurant();
+        for(Restaurant rest : list){
+            if(rest.getRestaurantId().equals(rId)){
+                rest.setRestaurantNoOfStaff(rest.getRestaurantNoOfStaff()-staff);
+
+                return "Staff removed successfully!!";
+            }
+        }
+        return "Restaurant Id not found!";
     }
 }

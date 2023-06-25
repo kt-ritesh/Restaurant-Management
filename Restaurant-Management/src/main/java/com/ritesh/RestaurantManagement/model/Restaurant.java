@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 public class Restaurant {
     private Integer restaurantId;
     private String restaurantName;
-    private String restaurantManagerName;
-    private RestaurantType restaurantType;
-    private FoodType foodType;
+    private String restaurantOwnerName;
+    private String restaurantSpecialty;
     private String restaurantAddress;
     private String restaurantContact;
     private Integer restaurantNoOfStaff;

@@ -27,11 +27,19 @@ public class RestaurantController {
         return restaurantService.addNewRestaurant(restaurant);
     }
 
-    @PutMapping("restaurant/{rId}")
-    public String UpdateRestaurant(@PathVariable Integer rId, @RequestBody Restaurant restaurant){
-        return restaurantService.updateRestaurant(rId, restaurant);
+    @PutMapping("restaurant/{rId}/{Specialty}")
+    public String UpdateRestaurant(@PathVariable Integer rId, @PathVariable String Specialty){
+        return restaurantService.updateRestaurant(rId, Specialty);
+    }
+    @PutMapping("restaurant/addStaff/{rId}/{staff}")
+    public String AddRestaurantStaff(@PathVariable Integer rId, @PathVariable Integer staff){
+        return restaurantService.addRestaurantStaff(rId, staff);
     }
 
+    @PutMapping("restaurant/removeStaff/{rId}/{staff}")
+    public String RemoveRestaurantStaff(@PathVariable Integer rId, @PathVariable Integer staff){
+        return restaurantService.removeRestaurantStaff(rId, staff);
+    }
     @DeleteMapping("restaurant/{rId}")
     public String DeleteRestaurant(@PathVariable Integer rId){
         return restaurantService.deleteRestaurant(rId);
